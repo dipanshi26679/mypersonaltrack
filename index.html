@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalPro | Life Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">GOAL<span>PRO</span></div>
+        <div class="nav-controls">
+            <label>Select Month:</label>
+            <select id="month-picker">
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+            </select>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1 id="date-label">Wednesday, Jan 7</h1>
+                <span class="badge">Performance Tracker</span>
+            </div>
+            <div class="header-right">
+                <div class="chart-box">
+                    <canvas id="monthlyBarChart"></canvas>
+                </div>
+            </div>
+        </header>
+
+        <div class="table-container">
+            <table>
+                <thead><tr id="table-head"></tr></thead>
+                <tbody id="table-body"></tbody>
+                <tfoot id="table-foot"></tfoot>
+            </table>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
