@@ -3,47 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoalPro | Life Dashboard</title>
+    <title>LIFETRACKER | Dipanshi</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
-        <div class="brand">GOAL<span>PRO</span></div>
+        <div class="brand">LIFE<span>TRACKER</span></div>
+        <div class="tab-controls">
+            <button class="tab-btn active" id="btn-tracker" onclick="switchTab('tracker')">Routine</button>
+            <button class="tab-btn" id="btn-todo" onclick="switchTab('todo')">To-Do & History</button>
+        </div>
         <div class="nav-controls">
-            <label>Select Month:</label>
             <select id="month-picker">
-                <option value="0">January</option>
-                <option value="1">February</option>
-                <option value="2">March</option>
-                <option value="3">April</option>
-                <option value="4">May</option>
-                <option value="5">June</option>
+                <option value="0">January</option><option value="1">February</option>
+                <option value="2">March</option><option value="3">April</option>
+                <option value="4">May</option><option value="5">June</option>
+                <option value="6">July</option><option value="7">August</option>
+                <option value="8">September</option><option value="9">October</option>
+                <option value="10">November</option><option value="11">December</option>
             </select>
         </div>
     </nav>
 
     <main class="container">
-        <header class="dashboard-header">
-            <div class="header-left">
-                <h1 id="date-label">Wednesday, Jan 7</h1>
-                <span class="badge">Performance Tracker</span>
+        <section id="tracker-page" class="page active">
+            <div class="dashboard-header">
+                <div class="header-left">
+                    <h1>CONSISTENCY IS THE KEY</h1>
+                    <span class="badge">Don't Stop</span>
+                </div>
+                <div class="chart-box"><canvas id="monthlyBarChart"></canvas></div>
             </div>
-            <div class="header-right">
-                <div class="chart-box">
-                    <canvas id="monthlyBarChart"></canvas>
+            <div class="table-container">
+                <table>
+                    <thead><tr id="table-head"></tr></thead>
+                    <tbody id="table-body"></tbody>
+                    <tfoot id="table-foot"></tfoot>
+                </table>
+            </div>
+        </section>
+
+        <section id="todo-page" class="page">
+            <div class="todo-layout">
+                <aside class="todo-sidebar">
+                    <div class="sidebar-header">HISTORY LOGS</div>
+                    <div id="date-list" class="date-list"></div>
+                </aside>
+                <div class="todo-main">
+                    <div class="todo-card">
+                        <h2 id="current-todo-title">Select Date</h2>
+                        <div class="todo-input-group">
+                            <input type="text" id="todo-input" placeholder="What's the plan?">
+                            <button onclick="addTodo()">Add Task</button>
+                        </div>
+                        <ul id="todo-list"></ul>
+                    </div>
                 </div>
             </div>
-        </header>
-
-        <div class="table-container">
-            <table>
-                <thead><tr id="table-head"></tr></thead>
-                <tbody id="table-body"></tbody>
-                <tfoot id="table-foot"></tfoot>
-            </table>
-        </div>
+        </section>
     </main>
     <script src="script.js"></script>
 </body>
